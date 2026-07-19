@@ -20,7 +20,17 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
  */
 @Mixin(ChatScreen.class)
 public class ChatScreenMixin {
-	@Inject(method = "handleChatInput", at = @At("HEAD"), cancellable = true)
+	// sendCommand の直前に注入する。この時点で message は正規化済みで、
+	// 送信履歴への追加 (addRecentChat) も既に実行済みのため、
+	// /darkersky も ↑↓ の履歴に残る。ここでキャンセルすると送信だけが止まる。
+	@Inject(
+		method = "handleChatInput",
+		at = @At(
+			value = "INVOKE",
+			target = "Lnet/minecraft/client/multiplayer/ClientPacketListener;sendCommand(Ljava/lang/String;)V"
+		),
+		cancellable = true
+	)
 	private void darkerSky$openSettings(String message, boolean addToRecent, CallbackInfo ci) {
 		if (message != null && message.strip().equalsIgnoreCase("/darkersky")) {
 			Minecraft client = Minecraft.getInstance();
