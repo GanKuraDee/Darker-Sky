@@ -1,0 +1,27 @@
+{
+	"schemaVersion": 1,
+	"id": "darker-sky",
+	"version": "${version}",
+	"name": "Darker Sky",
+	"description": "Client-side mod that darkens the sky (the sky dome and the horizon/atmospheric fog). Adjustable in-game with /darkersky. Does not affect terrain or block lighting.",
+	"authors": [
+		"deeply"
+	],
+	"contact": {},
+	"license": "CC0-1.0",
+	"icon": "assets/darker-sky/icon.png",
+	"environment": "client",
+	"entrypoints": {
+		"client": [
+			"com.deeply.ds.DarkerSky"
+		]
+	},
+	"mixins": [
+		"darker-sky.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.19.3",
+		"minecraft": "~26.2",
+		"java": ">=25"
+	}
+}

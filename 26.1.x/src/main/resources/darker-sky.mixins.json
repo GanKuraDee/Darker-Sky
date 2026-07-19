@@ -1,0 +1,13 @@
+{
+	"required": true,
+	"package": "com.deeply.ds.mixin",
+	"compatibilityLevel": "JAVA_25",
+	"client": [
+		"ChatScreenMixin",
+		"FogRendererMixin",
+		"SkyRendererMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
+}

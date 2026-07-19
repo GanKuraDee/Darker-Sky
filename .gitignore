@@ -1,0 +1,31 @@
+# Root-level ignores.
+# The subprojects (26.1.x/ and 26.2/) each have their own .gitignore too.
+
+# IDE
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+.settings/
+.classpath
+.project
+
+# Gradle / build output (also covered per-subproject)
+.gradle/
+build/
+out/
+bin/
+classes/
+
+# Fabric dev run
+run/
+
+# OS
+*.DS_Store
+
+# Java crash / profiling logs
+hs_err_*.log
+replay_*.log
+*.hprof
+*.jfr
