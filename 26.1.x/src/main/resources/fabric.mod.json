@@ -5,9 +5,12 @@
 	"name": "Darker Sky",
 	"description": "Client-side mod that darkens the sky (the sky dome and the horizon/atmospheric fog). Adjustable in-game with /darkersky. Does not affect terrain or block lighting.",
 	"authors": [
-		"deeply"
+		"GanKuraDee"
 	],
-	"contact": {},
+	"contact": {
+		"homepage": "https://github.com/GanKuraDee/Darker-Sky",
+		"sources": "https://github.com/GanKuraDee/Darker-Sky"
+	},
 	"license": "CC0-1.0",
 	"icon": "assets/darker-sky/icon.png",
 	"environment": "client",
