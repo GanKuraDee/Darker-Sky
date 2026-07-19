@@ -24,8 +24,10 @@ public class ChatScreenMixin {
 	private void darkerSky$openSettings(String message, boolean addToRecent, CallbackInfo ci) {
 		if (message != null && message.strip().equalsIgnoreCase("/darkersky")) {
 			Minecraft client = Minecraft.getInstance();
-			// チャット画面が閉じた後に開くため次フレームへ遅延
-			client.execute(() -> client.setScreenAndShow(new DarkerSkyScreen()));
+			// チャット画面が閉じた後に開くため次フレームへ遅延。
+			// setScreen は通常の描画ループで反映されるため、
+			// setScreenAndShow の強制描画による黒い画面のちらつきが起きない。
+			client.execute(() -> client.setScreen(new DarkerSkyScreen(null)));
 			ci.cancel();
 		}
 	}

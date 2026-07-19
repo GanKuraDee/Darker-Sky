@@ -7,17 +7,19 @@ version = project.mod_version
 group = project.maven_group
 
 repositories {
-	// Add repositories to retrieve artifacts from in here.
-	// You should only use this when depending on other mods because
-	// Loom adds the essential maven repositories to download Minecraft and libraries from automatically.
-	// See https://docs.gradle.org/current/userguide/declaring_repositories.html
-	// for more information about repositories.
+	// Mod Menu (Terraformers) - used for the optional Mod Menu config screen integration.
+	maven { url = "https://maven.terraformersmc.com/releases" }
 }
 
 dependencies {
 	// To change the versions see the gradle.properties file
 	minecraft "com.mojang:minecraft:${project.minecraft_version}"
 	implementation "net.fabricmc:fabric-loader:${project.loader_version}"
+
+	// Mod Menu: 設定画面を Mod Menu の一覧から開くための任意連携。
+	// compileOnly なので dev 実行時には読み込まれず、jar にもバンドルされません。
+	// 実際に使うには、ビルドした jar と Mod Menu を一緒に mods フォルダへ入れてください。
+	compileOnly "com.terraformersmc:modmenu:${project.modmenu_version}"
 
 	// Fabric API は使用しません（/darkersky は Mixin で実装しているため不要）。
 }

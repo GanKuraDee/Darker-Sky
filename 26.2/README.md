@@ -38,6 +38,15 @@ When you close the screen the value is saved to a config file and restored on th
 
 The Mixins read `DarkerSky.getDarkness()` every frame at runtime, so slider changes are reflected in the sky immediately.
 
+### Mod Menu
+
+If [Mod Menu](https://modrinth.com/mod/modmenu) is installed, click the config button on the
+**Darker Sky** entry in the mod list to open the same settings screen (closing it returns you to
+the mod list). This integration is optional: Mod Menu is a `compileOnly` dependency and the
+`modmenu` entrypoint is only invoked when Mod Menu is present, so the mod works fine without it.
+
+Tested with Mod Menu **20.0.1** for Minecraft 26.2.
+
 ## Building
 
 ```

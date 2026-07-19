@@ -16,8 +16,12 @@ import net.minecraft.network.chat.Component;
 public class DarkerSkyScreen extends Screen {
 	private static final Component TITLE = Component.translatable("darker-sky.title");
 
-	public DarkerSkyScreen() {
+	/** 閉じたときに戻る画面（Mod Menu の一覧など）。null ならゲームへ戻る。 */
+	private final Screen parent;
+
+	public DarkerSkyScreen(Screen parent) {
 		super(TITLE);
+		this.parent = parent;
 	}
 
 	@Override
@@ -36,8 +40,10 @@ public class DarkerSkyScreen extends Screen {
 	@Override
 	public void onClose() {
 		DarkerSkyConfig.save();
-		// 実際の画面クローズはバニラ実装に委譲（版差を吸収）
-		super.onClose();
+		// parent が null ならゲームへ、非 null なら元の画面(Mod Menu 一覧など)へ戻る。
+		// 26.2 では画面切替は Gui#setScreen。setScreenAndShow の強制描画を避けて
+		// 黒い画面のちらつきを防ぐ。
+		this.minecraft.gui.setScreen(this.parent);
 	}
 
 	/** 空の明るさ (0%〜100% = {@link DarkerSky#getDarkness()} の 0.0〜1.0) を調整するスライダー。 */
