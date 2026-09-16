@@ -53,7 +53,7 @@ The default is `0.5` (half brightness).
 | | |
 |---|---|
 | **Mod loader** | Fabric |
-| **Minecraft** | 26.1.x *(use the `26.1.x` build)* · 26.2 *(use the `26.2` build)* |
+| **Minecraft** | 26.1.x *(use the `26.1.x` build)* · 26.2 *(use the `26.2` build)* · 26.3 *(use the `26.3` build)* |
 | **Fabric API** | Not required |
 | **Mod Menu** | Optional — only for the config button in the mod list |
 
@@ -93,5 +93,5 @@ The default is `0.5` (half brightness).
 4. 閉じると保存されます（`config/darker-sky.properties`、初期値 `0.5`）
 
 ### 対応環境
-- **Minecraft 26.1.x**（`26.1.x` ビルド）/ **26.2**（`26.2` ビルド）、Fabric Loader
+- **Minecraft 26.1.x**（`26.1.x` ビルド）/ **26.2**（`26.2` ビルド）/ **26.3**（`26.3` ビルド）、Fabric Loader
 - Fabric API 不要 / Mod Menu 任意
