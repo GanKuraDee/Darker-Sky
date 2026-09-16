@@ -14,13 +14,12 @@ import net.minecraft.network.chat.Component;
  * スライダーを動かすと即座に空へ反映され、閉じるときに設定ファイルへ保存します。
  */
 public class DarkerSkyScreen extends Screen {
-	private static final Component TITLE = Component.translatable("darker-sky.title");
-
 	/** 閉じたときに戻る画面（Mod Menu の一覧など）。null ならゲームへ戻る。 */
 	private final Screen parent;
 
 	public DarkerSkyScreen(Screen parent) {
-		super(TITLE);
+		// 言語の切り替えに追従できるよう、文言は画面を開くたびに組み立てる。
+		super(DarkerSkyText.title());
 		this.parent = parent;
 	}
 
@@ -29,7 +28,7 @@ public class DarkerSkyScreen extends Screen {
 		int centerX = this.width / 2;
 		int centerY = this.height / 2;
 
-		this.addRenderableWidget(new StringWidget(centerX - 100, centerY - 50, 200, 20, TITLE, this.font));
+		this.addRenderableWidget(new StringWidget(centerX - 100, centerY - 50, 200, 20, this.title, this.font));
 		this.addRenderableWidget(new DarknessSlider(centerX - 100, centerY - 20, 200, 20));
 		this.addRenderableWidget(
 			Button.builder(Component.translatable("gui.done"), button -> this.onClose())
@@ -56,7 +55,7 @@ public class DarkerSkyScreen extends Screen {
 		@Override
 		protected void updateMessage() {
 			int percent = Math.round((float) this.value * 100.0F);
-			this.setMessage(Component.translatable("darker-sky.options.brightness", percent + "%"));
+			this.setMessage(DarkerSkyText.brightness(percent + "%"));
 		}
 
 		@Override
